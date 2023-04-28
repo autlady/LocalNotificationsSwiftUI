@@ -22,7 +22,6 @@ class LocalNotificationManager: NSObject, ObservableObject {
     func requestAuthorization() async throws {
         try await notificationCenter
             .requestAuthorization(options: [.sound, .badge, .alert])
-
         await getCurrentSettings()
     }
 
@@ -89,7 +88,6 @@ class LocalNotificationManager: NSObject, ObservableObject {
                 }
             }
         }
-
         print("Pending: \(pendingRequests.count)")
     }
 }

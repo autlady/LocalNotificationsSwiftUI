@@ -12,7 +12,6 @@ struct ContentView: View {
     @Environment(\.scenePhase) var scenePhase
     @EnvironmentObject var localNotificationManager: LocalNotificationManager
 
-
     @AppStorage("TOGGlE_KEY") var toggleIsOn = false
     @AppStorage("REMINDER_TIME") var reminderTime = Date()
 
@@ -27,29 +26,33 @@ struct ContentView: View {
                 Spacer()
             }
         }
-            .onChange(of: scenePhase) { newPhase in // watch changes in user settings
-                switch newPhase {
-                case .active:
-                    print("App became active")
-                    Task {
-                        await localNotificationManager.getCurrentSettings()
-                        await localNotificationManager.getPendingRequests()
-                    }
-                    UIApplication.shared.applicationIconBadgeNumber = 0 // set to 0 (number of notifications on icon)
-                case .inactive:
-                    print("App became inactive")
-                case .background:
-                    print("App is running in the background")
-                @unknown default:
-                    print("Fallback for future cases")
-                }
+            .onChange(of: scenePhase) { newPhase in
+                getPhase(phase: newPhase)
             }
             .onAppear() {
-
+                UIApplication.shared.applicationIconBadgeNumber = 0
                 Task {
                     try await localNotificationManager.requestAuthorization()
                 }
             }
+    }
+
+    func getPhase(phase: ScenePhase) {
+        switch phase {
+        case .active:
+            print("App became active")
+            Task {
+                await localNotificationManager.getCurrentSettings()
+                await localNotificationManager.getPendingRequests()
+            }
+
+        case .inactive:
+            print("App became inactive")
+        case .background:
+            print("App is running in the background")
+        @unknown default:
+            print("Fallback for future cases")
+        }
     }
 
         @ViewBuilder
@@ -85,7 +88,6 @@ struct ContentView: View {
                     if toggleIsOn {
                         DatePicker(selection: $reminderTime, displayedComponents: .hourAndMinute) {
                             Text(Strings.settings_date_picker_text)
-
                                 .foregroundColor(.white)
                         }
 
@@ -98,14 +100,13 @@ struct ContentView: View {
                         .environment(\.locale, Locale(identifier: "en_GB")) // get rid of pm /am format
                     }
         }
-
     }
-
 }
 
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(LocalNotificationManager())
     }
 }
