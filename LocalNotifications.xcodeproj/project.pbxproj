@@ -16,6 +16,8 @@
 		4BCDD19229F68FB00036B332 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCDD19129F68FB00036B332 /* Color.swift */; };
 		4BCDD19529F690450036B332 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCDD19429F690450036B332 /* Text.swift */; };
 		4BCDD19729F6934A0036B332 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCDD19629F6934A0036B332 /* Date.swift */; };
+		4BCDD1992A04086C0036B332 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCDD1982A04086C0036B332 /* NotificationView.swift */; };
+		4BCDD19B2A0408930036B332 /* ForbiddenNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCDD19A2A0408930036B332 /* ForbiddenNotificationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		4BCDD19129F68FB00036B332 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		4BCDD19429F690450036B332 /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		4BCDD19629F6934A0036B332 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		4BCDD1982A04086C0036B332 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		4BCDD19A2A0408930036B332 /* ForbiddenNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForbiddenNotificationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,11 +65,11 @@
 		4BCDD17C29F68D330036B332 /* LocalNotifications */ = {
 			isa = PBXGroup;
 			children = (
-				4BCDD17D29F68D330036B332 /* LocalNotificationsApp.swift */,
-				4BCDD17F29F68D330036B332 /* ContentView.swift */,
 				4BCDD18129F68D340036B332 /* Assets.xcassets */,
-				4BCDD18329F68D340036B332 /* Preview Content */,
+				4BCDD17D29F68D330036B332 /* LocalNotificationsApp.swift */,
 				4BCDD18D29F68E0A0036B332 /* LocalNotificationManager.swift */,
+				4BCDD19C2A040FF40036B332 /* Views */,
+				4BCDD18329F68D340036B332 /* Preview Content */,
 				4BCDD18F29F68EB10036B332 /* Strings.swift */,
 				4BCDD19329F68FCF0036B332 /* Extensions */,
 			);
@@ -88,6 +92,16 @@
 				4BCDD19629F6934A0036B332 /* Date.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4BCDD19C2A040FF40036B332 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4BCDD17F29F68D330036B332 /* ContentView.swift */,
+				4BCDD1982A04086C0036B332 /* NotificationView.swift */,
+				4BCDD19A2A0408930036B332 /* ForbiddenNotificationView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,7 +177,9 @@
 				4BCDD18029F68D330036B332 /* ContentView.swift in Sources */,
 				4BCDD18E29F68E0A0036B332 /* LocalNotificationManager.swift in Sources */,
 				4BCDD19729F6934A0036B332 /* Date.swift in Sources */,
+				4BCDD1992A04086C0036B332 /* NotificationView.swift in Sources */,
 				4BCDD19029F68EB10036B332 /* Strings.swift in Sources */,
+				4BCDD19B2A0408930036B332 /* ForbiddenNotificationView.swift in Sources */,
 				4BCDD19229F68FB00036B332 /* Color.swift in Sources */,
 				4BCDD19529F690450036B332 /* Text.swift in Sources */,
 				4BCDD17E29F68D330036B332 /* LocalNotificationsApp.swift in Sources */,
